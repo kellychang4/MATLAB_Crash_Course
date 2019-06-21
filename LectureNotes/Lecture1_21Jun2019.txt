@@ -1,0 +1,41 @@
+Lecture 1
+
+1. Data Types and Formats
+- numeric: 0, 1, 2, 3
+- char / string: '12345'
+- boolean: true (1) / false (0)
+- function handles: @(x) 2 + 3
+- matrix arrays: []
+- cell arrays: {}
+- structures: .
+- class()
+
+2. Subsetting Different Data Types
+- matrix arrays: (:,:)
+- cell arrays: {:,:}, (:,:)
+- structures: str.field
+- syntax, grammar, and common functions
+- nested data classes (cell. structures)
+- efficient subsetting
+
+3. Indexing Magic
+- boolean indexing: true(), false()
+- numeric indexing: randperm() 
+- find()
+
+--- 21Jun2019 ---
+
+4. Looping
+- if condition ... elseif condition ... else ... end
+- for iterative = [] ... end
+- while condition ... end
+- try ... catch ME end
+- switch key case 1 ... case 2 ... otherwise ... end
+
+5. Common Functions 
+- math functions (w/ dimensions): sum(), mean() / nanmean(), std()
+- exploratory functions: size(), length(), whos
+- transformation functions: num2double(), (), cell2mat()
+- initialization functions: zeros(), ones(), nan(), 1:10
+- data manipulation functions: squeeze(), reshape(), shiftdim(), permute()
+- plotting functions: histogram(), plot(), interacting with plot handles
