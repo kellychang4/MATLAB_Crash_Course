@@ -1,0 +1,44 @@
+Lecture 2
+
+1. Help Documentation
+- help function_name
+- Ctrl+D Shortcut
+- open function_script.m
+
+2. Data Class Transformation
+- logical data class checking: isa(obj, 'ClassName')
+- numeric --> character: num2str(), int2str(), mat2str(), string()
+- character --> numeric: str2num(), str2double()
+- matrix <--> cell: num2cell(), mat2cell(), cell2mat()
+- cell <--> structure: cell2struct(), struct2cell()
+- https://www.mathworks.com/help/matlab/data-type-conversion.html
+
+3. Initialization
+- numeric: [], zeros(), ones(), nan()
+- character: '', char(), string()
+- matrices: []
+- cell: {}
+- structure: struct('field1', value1, 'fieldn', valuen)
+- exists(), isempty(), isfield(), dir()
+
+4. Looping / Control Flow
+- if condition ... elseif condition ... else ... end
+- for iterative = [] ... end
+- while condition ... end
+- try ... catch ME end
+- switch key case 1 ... case 2 ... otherwise ... end
+
+5. Debugging
+- Logic of how code runs in MATLAB: scoping, pathing
+- How read warning / error messages
+- Clicking on error messages --> error line
+- Analytical / code thinking 
+- Debugging mode in MATLAB
+
+6. Math (w/ Dimensions)
+- Dimensions: length(), size(), numel()
+- Fundamental Functions: sum(), mean() / nanmean(), std()
+- bsxfun() w/ anonymous functions
+
+Questions for Class:
+- string manipulation

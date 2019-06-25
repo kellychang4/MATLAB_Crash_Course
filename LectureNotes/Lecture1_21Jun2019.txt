@@ -8,7 +8,7 @@ Lecture 1
 - matrix arrays: []
 - cell arrays: {}
 - structures: .
-- class()
+- class(), whos, who
 
 2. Subsetting Different Data Types
 - matrix arrays: (:,:)
