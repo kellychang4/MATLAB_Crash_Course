@@ -1,14 +1,13 @@
-Lecture 2
+Lecture 3
 
 1. Help Documentation
 - help function_name
 - Ctrl+D Shortcut
 - open function_script.m
-- MATLAB online documentation
 
 2. Data Class Transformation
 - logical data class checking: isa(obj, 'ClassName')
-- numeric --> character: num2str(), int2str(), mat2str()
+- numeric --> character: num2str(), int2str(), mat2str(), string()
 - character --> numeric: str2num(), str2double()
 - matrix <--> cell: num2cell(), mat2cell(), cell2mat()
 - cell <--> structure: cell2struct(), struct2cell()
@@ -20,17 +19,14 @@ Lecture 2
 - matrices: []
 - cell: {}
 - structure: struct('field1', value1, 'fieldn', valuen)
-- exists(), isempty(), isfield()
+- exists(), isempty(), isfield(), dir()
 
 4. Looping / Control Flow
 - if condition ... elseif condition ... else ... end
-- switch key case 1 ... case 2 ... otherwise ... end
-
---- 28Jun2019 ---
-
 - for iterative = [] ... end
 - while condition ... end
 - try ... catch ME end
+- switch key case 1 ... case 2 ... otherwise ... end
 
 5. Debugging
 - Logic of how code runs in MATLAB: scoping, pathing
@@ -42,7 +38,15 @@ Lecture 2
 6. Math (w/ Dimensions)
 - Dimensions: length(), size(), numel()
 - Fundamental Functions: sum(), mean() / nanmean(), std()
-- bsxfun() w/ anonymous functions
+
+7. Data Manipulation
+- combination of subsetting and indexing, 2D and 3D matrices, cells, and structures
+- data manipulation functions: squeeze(), reshape(), shiftdim(), permute()
+
+8. Plotting
+- Simple Plot Commands: histogram(), plot()
+- Add-on / overlays to plotting
+- Plot handles, object orientated coding
 
 Questions for Class:
-- string manipulation (YES!)
+- string manipulation
