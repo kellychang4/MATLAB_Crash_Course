@@ -1,0 +1,31 @@
+Lecture 3
+
+1. Looping
+- for iterative = [] ... end
+- while condition ... end
+- try ... catch ME end
+
+2. Search Path 
+- Logic of how code runs in MATLAB: search path, scope
+- path (or: Home -> Environment -> Set Path)
+- addpath(), genpath()
+- which filename.m
+- Workspace -> Current Folder -> Added Folders
+- https://www.mathworks.com/help/matlab/matlab_env/what-is-the-matlab-search-path.html
+
+3. Scope
+- global vs. local variables
+- global vs. local variable lifetime
+
+4. Functions
+- Function handles
+- End-of-script functions
+- Separate function scripts
+
+5. Debugging & Commenting
+- How read warning / error messages
+- Clicking on error messages --> error line
+- Debugging mode in MATLAB
+- Analytical / code thinking process 
+- Comment code!!!
+
