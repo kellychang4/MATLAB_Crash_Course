@@ -1,0 +1,49 @@
+Lecture 4
+
+1. Absolute vs. Relative Pathing
+- print working directory, pwd
+- home directory shortcut, ~
+- fullfile(), filesep
+
+2. File List within a Directory
+- dir(), wildcard (*)
+- recursive list
+- [filepath,name,ext] = fileparts()
+
+3. Regular Expressions Definitions
+- anchors
+% ^expr - beginning of the text
+% expr$ - end of the text
+- metacharacters
+%   . - any character
+%  [] - any character contained within the brackets
+% [^] - any character NOT contained within the brackets
+- shorthand
+% \w - a word character [a-zA-Z0-9]
+% \W - NOT a word character [^a-zA-Z0-9]
+% \d - a digit [0-9]
+% \D - NOT a digit [^0-9]
+% \s - whitespace [ \t\r\n\f\v]
+% \S - NOT whitespace [^ \t\r\n\f\v]
+- quantifiers (greedy vs. lazy matching)
+%    *  - match zero or more occurrences
+%    +  - match one or more occurrences
+%    ?  - match zero or one occurrence
+% {n,m} - match between n and m occurrences
+- grouping 
+% (expr)
+% referred with: $1
+- tokens 
+% (?<token>expr)
+% referred with: $<token>
+- escape (\)
+
+4. Regular Expression in MATLAB: regexp() and regexprep()
+- regexp(): 'start', 'end', 'tokenExtents', 'match', 'tokens', 'names', 'split'
+- regexprep(): same 'language' as regexp() now with replacement
+- options: regexpi(), 'ignorecase', 'once'
+
+6. String Functions Similar to RegExp
+- strfind(), strcmp(), strcmpi()
+- strjoin(), strsplit()
+- startsWith(), endsWith(), contains()
