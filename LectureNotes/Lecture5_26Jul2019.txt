@@ -1,0 +1,39 @@
+Lecture 5
+
+1. Basic Math 
+- Matrix Math: A * x = b
+- Vectorized Math: a .* x = b
+- Logarithms: log() [ exp() ], log2() [ 2^() ], log10() [ 10^() ]
+- Trigonometric: sin(), sind(), cos(), cosd()
+- Complex: imag(), real(), sign()
+- Fundamental Functions: sum(), mean() / nanmean(), std(), cumsum()
+- Dimensions: length(), size(), numel()
+
+2. Data Manipulation
+- transpose (.'), sort(), unique() 
+- squeeze(), reshape(), shiftdim(), permute()
+- Linear <--> Subset Indices: sub2ind(), ind2sub()
+
+3. Formating Data --> Plotting
+- Formatting numeric vs. categorical data
+- Number of variables to plot
+- (1) x, (2) y, (3) color axes
+
+4. Plotting Functions / Options
+- histogram(), histcount()
+- plot('options'), scatter()
+- image(), imagesc()
+- legend(), colorbar()
+- errorbar()
+
+5. Figure Options
+- f = figure()
+- hold on, hold off
+- axis equal tight square
+- Clear Current Figure: clf
+- Get handle to Current Figure: gcf
+- Get handle to Current Axis: gca
+% ax.FontSize = 12;
+% ax.YLim = [-2 2];
+- Get Object Properties: get(H, 'PropertyName', PropertyValue)
+- Set Object Properties: set(H, 'PropertyName', PropertyValue)
