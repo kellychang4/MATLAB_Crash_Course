@@ -1,0 +1,82 @@
+playGame();
+
+function [userThrow] = userDraw()
+userThrow = ''; % initialize
+while isempty(userThrow)
+    userThrow = input('rock (r), paper (p) or scissors (s)? ', 's');
+    userThrow = lower(userThrow(1));
+    if ~any(strcmp(userThrow, {'r', 'p', 's'}))
+        fprintf('invalid response\n');
+        userThrow = '';
+    end
+end
+end
+
+function [computerThrow] = computerDraw()
+allAnswers = {'r', 'p', 's'};
+computerThrow = allAnswers{randi(3, 1)};
+end
+
+function printOutcome(userThrow, computerThrow, score)
+fprintf('(user) %s vs %s (computer)\n', userThrow, computerThrow);
+fprintf('(user) %d vs %d (computer)\n\n', score(1), score(2));
+end
+
+function [winner] = compareThrows(userThrow, computerThrow)
+if strcmp(userThrow, computerThrow) % draw
+    fprintf('\nDraw!\n');
+    winner = [1 2];
+elseif strcmp(userThrow,'r') && strcmp(computerThrow,'s')
+    fprintf('\nYou Win!\n');
+    winner = 1;
+elseif strcmp(userThrow,'p') && strcmp(computerThrow,'r')
+    fprintf('\nYou Win!\n');
+    winner = 1;
+elseif strcmp(userThrow,'s') && strcmp(computerThrow,'p')
+    fprintf('\nYou Win!\n');
+    winner = 1;
+else
+    fprintf('\nComputer Wins!\n\n');
+    winner = 2;
+end
+end
+
+function [score] = playRound(score)
+userThrow = userDraw();
+computerThrow = computerDraw();
+winner = compareThrows(userThrow, computerThrow);
+score(winner) = score(winner) + 1;
+printOutcome(userThrow, computerThrow, score);
+end
+
+function [playFlag] = playAgain()
+playFlag = ''; % initialize
+while isempty(playFlag)
+    playFlag = input('play again, yes (y) or no (n)? ', 's');
+    playFlag = lower(playFlag(1));
+    if ~any(strcmp(playFlag, {'y', 'n'}))
+        fprintf('invalid response\n');
+        playFlag = '';
+    end
+end
+end
+
+function printWinner(score)
+if score(1) == max(score)
+    fprintf('Final Winner: You!\n')
+else
+    fprintf('Final Winner: Computer!\n')
+end
+fprintf('Thanks for Playing!\n\n');
+end
+
+function playGame()
+score = [0 0]; % [user computer]
+playFlag = 'y'; % initialize, yes
+while strcmp(playFlag, 'y')
+    score = playRound(score);
+    playFlag = playAgain();
+end
+printWinner(score);
+end
+

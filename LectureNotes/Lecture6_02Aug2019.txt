@@ -1,0 +1,25 @@
+Lecture 6
+
+1. Basic Function Information 
+- arguments (input), [] to skip or empty options
+- multiple outputs, ~ to request no output
+- MATLAB specific: no named inputs = positional input
+
+2. Modular Function Writing
+- when do you write a function?
+- what scale of a function do you write?
+- rock, paper, scissor example
+
+3. Function Input Control Options
+- nargin, nargout
+- if ... else ... error() / warning()
+
+4. Variable Inputs and Outputs
+- varvargin, varargout (must be last)
+- "structure-ized" method, field checking
+- plotting example 
+
+5. Documentation
+- at the very least write what the inputs and outputs are expected to be
+- follow MATLAB's format if possible
+- if you have your own method, just stay consistent
