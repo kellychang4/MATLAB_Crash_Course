@@ -1,0 +1,95 @@
+Psychtoolbox Examples
+
+try
+    Screen('Preference', 'Verbosity', 0);
+    Screen('Preference', 'SkipSyncTests', 1);
+    
+    screenNumber = Screen('Screens');
+    rect = Screen('Rect', screenNumber);
+    fr = Screen('FrameRate', screenNumber);
+    
+    bkColor = [0 0 0]; % black
+    windowSize = rect / 3; % reduced window size
+    [windowPtr,rect] = Screen('OpenWindow', screenNumber, bkColor, windowSize);
+    Screen('BlendFunction', windowPtr, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    [xCenter,yCenter] = RectCenter(rect);
+
+    img = imresize(imread('sherlock.jpg'), 0.5);
+    
+    x = 1:size(img,2); y = 1:size(img,1);
+    xCenter = mean(x); yCenter = mean(y);
+    [x,y] = meshgrid(x, y);
+    r = sqrt((x-xCenter).^2 + (y-yCenter).^2);
+    circleIndx = r <= 150; % pixels
+    img(:,:,4) = circleIndx * 255; % circular aperature
+    
+    img(:,:,4) = any(img >= 200, 3) * 255; % bright transparency
+    
+    img = rgb2gray(img);
+    img(:,:,2) = (img >= 200) * 255;
+    textureIndex = Screen('MakeTexture', windowPtr, img);
+    
+    Screen('DrawTexture', windowPtr, textureIndex);
+    Screen('Flip', windowPtr);
+    WaitSecs(5); % seconds
+    
+    Screen('CloseAll');
+    
+catch ME
+    Screen('CloseAll');
+    rethrow(ME);
+end
+
+
+
+
+
+
+
+devices = PsychHID('Devices');
+keyboardDevice = 6;
+
+try
+    ListenChar(-1); % suppress keyboard input
+    KbEventFlush(keyboardDevice); % clear keyboard queue
+    Screen('Preference', 'Verbosity', 0);
+    Screen('Preference', 'SkipSyncTests', 1);
+    
+    screenNumber = Screen('Screens');
+    rect = Screen('Rect', screenNumber);
+    fr = Screen('FrameRate', screenNumber);
+    
+    fontColor = WhiteIndex(screenNumber); % white
+    bkColor = BlackIndex(screenNumber); % black
+    windowSize = rect / 3; % reduced window size
+    [windowPtr,rect] = Screen('OpenWindow', screenNumber, bkColor, windowSize);
+    
+    Screen('DrawText', windowPtr, 'Input Response', ...
+        rect(3)/2, rect(4)/2, fontColor);
+    Screen('Flip', windowPtr);
+    
+    answerKey = [KbName('f') KbName('j')];
+    [keyIsDown,secs,keyCode] = KbCheck(keyboardDevice);
+    while ~any(keyCode(answerKey))
+        [keyIsDown,secs,keyCode] = KbCheck(keyboardDevice);
+    end
+    userInput = KbName(keyCode);
+    
+    responseTime = 5; % seconds
+    userInput = cell(1, ceil(responseTime * fr));
+    startTime = GetSecs(); % start clock
+    while (GetSecs()-startTime) < responseTime
+        frame = ceil((GetSecs() - startTime) * fr);
+        [keyIsDown,secs,keyCode] = KbCheck(keyboardDevice);
+        userInput{frame} = KbName(keyCode);
+    end
+    endTime = GetSecs() - startTime; % end clock
+
+    Screen('CloseAll');
+    ListenChar(0) % unsuppress keyboard input
+
+catch ME
+    Screen('CloseAll');
+    ListenChar(0) % unsuppress keyboard input
+    rethrow(ME);
+end

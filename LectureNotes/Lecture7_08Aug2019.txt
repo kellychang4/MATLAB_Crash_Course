@@ -1,0 +1,49 @@
+Lecture 7
+
+1. Psychtoolbox Installation
+- http://psychtoolbox.org/download.html
+- PsychtoolboxVersion
+- PsychtoolboxRoot
+- UpdatePsychtoolbox
+
+2. Basic Commands
+- Screen Preferences
+  - Screen('Preference', 'Verbosity', 0);
+  - Screen('Preference', 'SkipSyncTests', 1);
+- Screen Display
+   - Screen('Screens');
+   - Screen('Rect', screenNumber);
+   - Screen('FrameRate', screenNumber);
+- Screen Window
+   - Screen('OpenWindow', screenNumber, bicolor, windowSize)
+   - Screen('CloseAll'); sca;
+- Screen Flip
+   - Screen('Flip', windowPtr);
+   - ...screen timing, frame rate
+
+3. Screen Drawing 
+- Shapes
+   - Screen('DrawLine', windowPtr);
+   - Screen('[Frame/Fill][Rect/Oval/Poly]', windowPtr);
+- Text
+   - Screen('DrawText', windowPtr, text, x, y);
+   - DrawFormattedText(windowPtr, text)
+- Images
+   - textureIndex = Screen('MakeTexture', windowPtr, imageMatrix); a
+   - Screen('DrawTexture', windowPtr, textureIndex);
+   - Screen('BlendFunction', windowPtr, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); 
+   - Transparency Example
+
+4. Timing
+- WaitSecs(waitTime); % seconds
+- startTime = GetSecs(); % start timer
+- endTime = startTime - GetSecs(); % end timer
+- stop experiment with code: while (time) ... end
+
+5. User Response
+- [keyIsDown,secs,keyCode] = KbCheck(deviceNumber);
+- userInput = KbName(keyCode);
+- keyCodeIndex = KbName('keyboardKey');
+- KbEventFlush(keyboardDevice); % clear keyboard queue
+- ListenChar(-1); % suppress keyboard input
+- ListenChar(0); % unsuppress keyboard input
