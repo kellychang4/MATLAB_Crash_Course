@@ -1,0 +1,24 @@
+Lecture 8
+
+1. Devices 
+- devices = PsychHID('Devices');
+
+2. User Response
+- [keyIsDown,secs,keyCode] = KbCheck(deviceNumber);
+- userInput = KbName(keyCode);
+- keyCodeIndex = KbName('keyboardKey');
+- KbEventFlush(keyboardDevice); % clear keyboard queue
+- ListenChar(-1); % suppress keyboard input
+- ListenChar(0); % unsuppress keyboard input
+
+3. Timing
+- WaitSecs(waitTime); % seconds
+- startTime = GetSecs(); % start timer
+- endTime = startTime - GetSecs(); % end timer
+- stop experiment with code: while (time) ... end
+
+--- 23Aug2019 ---
+
+4. Psychophysics Experiment
+- 2AFC Experiment
+- 2IFC Experiment
